@@ -1,0 +1,39 @@
+### 解题思路
+
+先把 s 处理，都转换成小写字符串，左右指针由两侧向中间靠拢，判断是否满足条件
+
+![image.png](https://pic.leetcode-cn.com/1648278033-VbqquE-image.png)
+
+### 代码
+
+* golang
+
+```golang
+func isPalindrome(s string) bool {
+	s = strings.ToLower(s)
+	lo, hi := 0, len(s)-1
+	for lo < hi {
+		for lo < hi && !isAlphaNum(s[lo]) {
+			lo++
+		}
+		for lo < hi && !isAlphaNum(s[hi]) {
+			hi--
+		}
+		if s[lo] != s[hi] {
+			return false
+		}
+		lo++
+		hi--
+	}
+	return true
+}
+
+func isAlphaNum(b byte) bool {
+	if b >= 'a' && b <= 'z' || b >= '0' && b <= '9' {
+		return true
+	}
+	return false
+}
+
+```
+
