@@ -1,5 +1,7 @@
 package code;
 
+import java.util.Locale;
+
 public class Leet {
     public String addBinary67(String a, String b) {
         int a_len = a.length();
@@ -51,7 +53,23 @@ public class Leet {
     }
 
     public boolean isPalindrome125(String s) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i<s.length(); i++){
+            char c = s.charAt(i);
 
-        return true;
+            if ((c>='A'&&c<='Z') || (c>='a'&&c<='z') || (c>='0'&&c<='9')){
+//                String s1 = new String(String.valueOf(c)).toLowerCase(Locale.ROOT);
+                sb.append(String.valueOf(c).toLowerCase());
+            }
+        }
+
+//        System.out.println(sb.toString());
+        String s1 = sb.toString();
+        String s2 = sb.reverse().toString();
+//        StringBuffer reverse = sb.reverse();
+//        System.out.println(reverse.toString());
+//        System.out.println(sb.toString());
+
+        return s1.equals(s2);
     }
 }

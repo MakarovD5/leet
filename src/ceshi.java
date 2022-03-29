@@ -6,6 +6,15 @@ import java.nio.charset.StandardCharsets;
 public class ceshi {
 
     @Test
+    public void testStringBufferReverse(){
+        StringBuffer sb = new StringBuffer("abcd");
+        System.out.println(sb);
+        StringBuffer reverse = sb.reverse();
+        System.out.println(sb);
+        System.out.println(reverse);
+    }
+
+    @Test
     public void fileout(){
         FileOutputStream fileout = null;
         try {

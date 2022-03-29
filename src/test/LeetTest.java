@@ -16,4 +16,11 @@ public class LeetTest {
 
     }
 
+    @Test
+    public void testisPalindrome125(){
+        boolean is = leet.isPalindrome125("A man, a plan, a canal: Panama");
+        System.out.println(is);
+
+    }
+
 }
