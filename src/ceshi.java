@@ -2,13 +2,31 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ceshi {
 
     @Test
     public void testHashMap(){
-        HashMap<Object, Object> hashMap = new HashMap<>();
+        Map<Character, List<Integer>> hashMap = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        hashMap.put('c',list);
+        List<Integer> list1 = hashMap.get('c');
+        list1.add(5);
+
+        hashMap.get('c').add(16);
+
+        System.out.println(hashMap.get('c'));
+
+        Map<Character,Integer> map = new HashMap<>();
+        map.put('a',6);
+
+        System.out.println(map.get('a'));
 
     }
 

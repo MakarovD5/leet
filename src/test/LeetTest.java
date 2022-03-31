@@ -8,8 +8,20 @@ public class LeetTest {
 
     @Test
     public void testlengthOfLongestSubstring_3(){
-        int pwwkew = leet.lengthOfLongestSubstring_3("abba");
+        int pwwkew = leet.lengthOfLongestSubstring_3("a");
         System.out.println(pwwkew);
+    }
+
+    @Test
+    public void testlongestPalindrome_5(){
+        String babad = leet.longestPalindrome_5("aacabdkacaa");
+        System.out.println(babad);
+    }
+
+    @Test
+    public void testishuiwenString(){
+        int aba = leet.ishuiwenString("dbbd");
+        System.out.println(aba);
     }
 
     @Test
