@@ -7,6 +7,12 @@ public class LeetTest {
     Leet leet = new Leet();
 
     @Test
+    public void testlengthOfLongestSubstring_3(){
+        int pwwkew = leet.lengthOfLongestSubstring_3("abba");
+        System.out.println(pwwkew);
+    }
+
+    @Test
     public void testaddBinary67(){
         String a = "1";
         String b = "111";

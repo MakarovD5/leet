@@ -2,8 +2,15 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class ceshi {
+
+    @Test
+    public void testHashMap(){
+        HashMap<Object, Object> hashMap = new HashMap<>();
+
+    }
 
     @Test
     public void testStringBufferReverse(){
