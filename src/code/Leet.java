@@ -26,6 +26,54 @@ public class Leet {
         return ans;
     }
 
+    public String longestPalindrome_dp_5(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        int maxLen = 1;
+        int begin = 0;
+        // dp[i][j] 表示 s[i..j] 是否是回文串
+        boolean[][] dp = new boolean[len][len];
+        // 初始化：所有长度为 1 的子串都是回文串
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+
+        char[] charArray = s.toCharArray();
+
+        //L为本次遍历的字串长度
+        for (int L = 2; L <= len; L++ ){
+            //左边界为i，右边界为j = i + L - 1。
+            for (int i = 0; i<len; i++){
+                int j = i+L-1;
+                if (j >= len){
+                    break;
+                }
+
+                if (charArray[i] != charArray[j]){
+                    dp[i][j] = false;
+                }else {
+                    if (L==2){
+                        dp[i][j] = true;
+                    }else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                }
+
+                if (dp[i][j] && L>maxLen){
+                    maxLen = L;
+                    begin = i;
+                }
+            }
+        }
+
+
+
+        return s.substring(begin,begin+maxLen);
+    }
+
     public String longestPalindrome_5(String s) {
         StringBuffer sb = new StringBuffer(s);
         Map<Character, List<Integer>> hashmap = new HashMap<>();

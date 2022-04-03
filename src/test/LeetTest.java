@@ -14,8 +14,11 @@ public class LeetTest {
 
     @Test
     public void testlongestPalindrome_5(){
-        String babad = leet.longestPalindrome_5("aacabdkacaa");
-        System.out.println(babad);
+//        String babad = leet.longestPalindrome_5("aacabdkacaa");
+//        System.out.println(babad);
+
+        String s = leet.longestPalindrome_dp_5("aacabdkacaa");
+        System.out.println(s);
     }
 
     @Test

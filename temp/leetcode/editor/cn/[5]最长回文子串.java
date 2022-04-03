@@ -31,49 +31,51 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String longestPalindrome(String s) {
-        StringBuffer sb = new StringBuffer(s);
-        Map<Character, List<Integer>> hashmap = new HashMap<>();
-
-        if (s.equals("")){
-            return "";
-        }
-
-        int ans = 1;
-        String ans_s = "";
-
-        if (ishuiwenString(s)>ans){
+        int len = s.length();
+        if (len < 2) {
             return s;
         }
 
-        for (int end = 0; end <s.length(); end++){
-            char c = s.charAt(end);
-            if (hashmap.containsKey(c)){
-                List<Integer> integerList = hashmap.get(c);
-                for (int i: integerList){
-                    String substring = s.substring(i, end + 1);
-                    int len = ishuiwenString(substring);
-                    if (len>ans){
-                        ans = len;
-                        ans_s =substring;
-                        break;
+        int maxLen = 1;
+        int begin = 0;
+        // dp[i][j] 表示 s[i..j] 是否是回文串
+        boolean[][] dp = new boolean[len][len];
+        // 初始化：所有长度为 1 的子串都是回文串
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+
+        char[] charArray = s.toCharArray();
+
+        //L为本次遍历的字串长度
+        for (int L = 2; L <= len; L++ ){
+            //左边界为i，右边界为j = i + L - 1。
+            for (int i = 0; i<len; i++){
+                int j = i+L-1;
+                if (j >= len){
+                    break;
+                }
+
+                if (charArray[i] != charArray[j]){
+                    dp[i][j] = false;
+                }else {
+                    if (L==2){
+                        dp[i][j] = true;
+                    }else {
+                        dp[i][j] = dp[i+1][j-1];
                     }
                 }
-            }
 
-            if (hashmap.get(c)==null){
-                hashmap.put(c,new ArrayList<>());
+                if (dp[i][j] && L>maxLen){
+                    maxLen = L;
+                    begin = i;
+                }
             }
-            //不用赋新值就能修改该值，这里涉及到深拷贝问题
-            hashmap.get(c).add(end);
-//            hashmap.put(c,intList);
-
         }
 
-        if (ans == 1){
-            return s.substring(0,1);
-        }
 
-        return ans_s;
+
+        return s.substring(begin,begin+maxLen);
     }
 
     public int ishuiwenString(String s){
