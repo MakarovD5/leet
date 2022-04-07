@@ -1,13 +1,59 @@
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ceshi {
+    @Test
+    public void testFloat(){
+        double f1 = 2.07 - 1;  //1.0699999999999998
+        double f2 = 1.07;  //1.07
+        //Double.toString(f1).equals(Double.toString(f2)) --> false;
+        //Math.abs(f1-f2)<0.00000000000000000000000001 --> false;
+        //Math.abs(f1-f2)<0.0001 --> true;
+        //Double.doubleToLongBits(f1)==Double.doubleToLongBits(f2) --> false;
+        //new BigDecimal(f1).equals(new BigDecimal(f2)) --> false;
+        //new BigDecimal(f1).compareTo(new BigDecimal(f2))==0 --> false;
+        if (new BigDecimal(f1).compareTo(new BigDecimal(f2))==0){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+
+        Set<Double> hashset = new HashSet<>();
+        hashset.add(f1);
+        hashset.add(f2);
+        //Set并不能认为这两个浮点数相等，无法去重
+        // 输出：
+        // 1.0699999999999998
+        // 1.07
+        for (Double f : hashset){
+            System.out.println(f);
+        }
+    }
+
+    @Test
+    public void testchufa(){
+        double i = 1.0 - 0.0 / 0.0 - 0.0;
+        float x = (float) (8.0/0);
+        float y = (float) (8.0/4);
+        Set<float[]> ff = new HashSet<>();
+        Map<Float,Float> hashmap = new HashMap<>();
+        hashmap.put(x,y);
+        ff.add(new float[]{x});
+        System.out.println(Float.NEGATIVE_INFINITY);
+        System.out.println(hashmap.get(Float.POSITIVE_INFINITY));
+    }
+
+    @Test
+    public void testArrayList(){
+        List<int[]> pointList = new ArrayList<>();
+        pointList.add(new int[]{1,2});
+        pointList.add(new int[]{2,2});
+        System.out.println(pointList.get(0)[0]);
+    }
 
     @Test
     public void testHashMap(){
