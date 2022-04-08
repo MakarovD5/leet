@@ -205,6 +205,13 @@ public class LanQiao {
         System.out.println(count+heng+zhong);
     }
 
+    public void lujing(){
+        int cha = 21;
+        int num = 2021;
+
+
+    }
+
     public static void main(String[] args) {
 //        fenguoguo();
     }
