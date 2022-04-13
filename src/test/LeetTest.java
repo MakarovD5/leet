@@ -7,7 +7,7 @@ public class LeetTest {
     Leet leet = new Leet();
 
     @Test
-    public void testlengthOfLongestSubstring_3(){
+    public void testLengthOfLongestSubstring3(){
         int pwwkew = leet.lengthOfLongestSubstring_3("a");
         System.out.println(pwwkew);
     }
