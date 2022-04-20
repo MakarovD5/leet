@@ -9,6 +9,12 @@ import java.util.*;
 
 public class ceshi {
     @Test
+    public void testchar(){
+        char a = '是';
+        System.out.println(a);
+    }
+
+    @Test
     public void testFloat(){
         double f1 = 2.07 - 1;  //1.0699999999999998
         double f2 = 1.07;  //1.07
