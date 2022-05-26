@@ -11,7 +11,12 @@ public class ceshi {
     @Test
     public void testchar(){
         char a = '是';
-        System.out.println(a);
+
+        int s = (int)1L;
+        float ad = 1.4f;
+        long x = (long) 1E10;
+        double ewq = 1.345e-2;
+        System.out.println((int)'b');
     }
 
     @Test
