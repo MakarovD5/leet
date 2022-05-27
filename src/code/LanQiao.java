@@ -1,7 +1,7 @@
 package code;
 
 import com.google.common.primitives.Ints;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.*;
 

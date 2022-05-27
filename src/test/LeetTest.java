@@ -1,7 +1,7 @@
 package test;
 
 import code.Leet;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class LeetTest {
     Leet leet = new Leet();
