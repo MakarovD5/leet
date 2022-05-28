@@ -1,6 +1,5 @@
 package code;
 
-
 import org.junit.Test;
 
 import java.util.logging.Logger;
